@@ -5,11 +5,18 @@
 ############################################################
 
 # Add in your name
+# Berta Ramiro Sanchez
+
 # Add in purpose of this script
+# Workshop for combining RStudio and Git for version control
 
 # Libraries ----
 
+library(ggplot2)
+
 # Functions ----
+there.clean
+
 # This is a ggplot function for a nice clean theme
 # HINT: use this theme when making your plot later on
 theme.clean <- function(){
@@ -31,7 +38,17 @@ theme.clean <- function(){
 
 # Load data ----
 
+temp_elevation <- read.csv("Z:/Berta/CC-7-Github/temp_elevation.csv")
+
 # Make a plot showing how soil temperature changes with elevation ----
+
+plot(temp_elevation$Soil.temp.mean~temp_elevation$Elevation.m)
+
+(temp.el <- ggplot (temp_elevation, aes(x = Elevation.m, y = Soil.temp.mean)) +
+   geom_point(colour = "#8B4513") +
+   geom_smooth(method = lm, colour = "#8B4513", fill = "#8B4513", alpha = 0.6) +
+   labs(x = "Elevation (m)", y = "Mean soil temperature (°C)") +
+   theme.clean())
 
 # Save your plot in your project directory
 
